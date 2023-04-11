@@ -4,12 +4,13 @@
         max-width: 1000px;
         position: relative;
         margin: auto;
-       
+
     }
 
     .mySlides {
         display: none;
     }
+
     .prev,
     .next {
         cursor: pointer;
@@ -21,11 +22,12 @@
         font-weight: bold;
         font-size: 18px;
     }
-  
+
     .prev:hover,
     .next:hover {
         background-color: black;
     }
+
     .text {
         color: white;
         font-size: 16px;
@@ -34,11 +36,26 @@
         width: 100%;
         text-align: center;
     }
-
+    .addtext{
+        background-color: blue;
+        text-align: center;
+        color: white;
+        margin-left: 50%;
+        padding-bottom: "5px";
+    }
+    .inputbox {
+        text-align: center;
+        color: white;
+        margin-left: 50%;
+       margin-top: 8px;
+       margin-bottom: 8px;
+        
+    }
+   
 </style>
 
 <body>
-    <div class="slideshow-container">
+    <div class="slideshow-container" id="slideshow-container">
         <div class="mySlides">
             <img src="first.jpg" style="width:100%; height: 500px;">
             <div class="text">First Image</div>
@@ -54,6 +71,9 @@
         <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
         <a class="next" style="right: 0;" onclick="changeSlide(1)">&#10095;</a>
     </div>
+    <button class="addtext" type="submit" onclick="ShowText()" > Add new Image</button>
+    <input type="text" class="inputbox" style="display: none;" id="imgurl"></input>
+    <button class="addtext" type="submit" onclick="submitText()" style="display: none;" id="submitText"> Submit</button>
     <br>
     <script>
         let slideIndex = 1;
@@ -66,7 +86,27 @@
         function currentSlide(n) {
             displaySlide(slideIndex = n);
         }
+        function ShowText() {
+            let a = document.getElementById("imgurl");
+            a.style.display = "block";
+            let b = document.getElementById("submitText");
+            b.style.display = "block";
+        }
+        function submitText() {
+            let a = document.getElementById("imgurl");
+            var img = document.createElement('img');
+            img.src = a.value;
+            img.style = "width:100%; height: 500px;";
+            console.log(a.value);
+            let div = document.createElement("div");
+            div.className = "mySlides";
+            div.appendChild(img);
+            let slides = document.getElementById("slideshow-container");
+            slides.appendChild(div);
 
+
+
+        }
         function displaySlide(n) {
             let slides = document.getElementsByClassName("mySlides");
             if (n > slides.length) { slideIndex = 1 }
