@@ -116,3 +116,70 @@
 //   var y = 2;
 // }
 // console.log(y);
+
+// Generator-Function: A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the yield keyword rather than return. The yield statement suspends the function’s execution and sends a value back to the caller, but retains enough state to enable the function to resume where it is left off. When resumed, the function continues execution immediately after the last yield run. 
+
+// function *gen(){
+//     yield 1;
+//     yield 2;
+//     yield 3;
+// }
+
+// var data = gen();
+// console.log(data.next().value);
+// console.log(data.next().value);
+
+// var arr = ['a','b','c'];
+// function *gen(){
+//     yield 1;
+//     yield arr;
+//     yield 3;
+// }
+
+// for(let it of gen()){
+//     console.log(it)
+// }
+
+
+
+// var arr = ['a','b','c'];
+// function *gen(){
+//     yield 1;
+//     yield* arr;
+//     yield 3;
+// }
+
+// for(let it of gen()){
+//     console.log(it)
+// }
+
+
+// Javascript Iterator is an object or pattern that allows us to traverse over a list or collection.
+
+// var  a = ['a','b','c'];
+
+// it = a[Symbol.iterator]();
+// for(val of it){
+//     console.log(val)
+// }
+
+// Iterables are iterable objects (like Arrays).
+
+// Iterables can be accessed with simple and efficient code.
+
+var arr  = [1,2,3];
+for(let data of arr){
+    console.log(data);
+}
+for(let data in arr){
+    console.log(data);
+}
+
+const a = {
+    b: 1,
+    c: 2,
+    d: 3
+}
+for(let data in a){
+    console.log(a[data])
+}
