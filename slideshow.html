@@ -37,10 +37,10 @@
         text-align: center;
     }
     .addtext{
-        background-color: blue;
+        background-color:cadetblue;
         text-align: center;
         color: white;
-        margin-left: 50%;
+        margin-left: 47%;
         padding-bottom: "5px";
     }
     .inputbox {
@@ -78,7 +78,9 @@
     <script>
         let slideIndex = 1;
         displaySlide(slideIndex);
-
+        setInterval(()=>{
+            changeSlide(1);
+        },1000)
         function changeSlide(n) {
             displaySlide(slideIndex += n);
         }
