@@ -1,30 +1,25 @@
 
-let prev = "";
-let execute;
-function startExecuation(input){
-    execute =  setTimeout(()=>{
-        console.log("executed " + input);
-    },1000);
-}
-function change(input){
+function query(){
+ console.log('abc');
+  }
 
-    if(prev==""){
-        prev = input;
-        startExecuation(input);
-    }
-    else if(prev!=input){
-        clearTimeout(execute);
-        startExecuation(input);
-    }
+
+
+const debounce = (func) => {
+   let execute;
+    return function() {
+       clearTimeout(execute);
+       execute = setTimeout(() => {
+           func.apply();
+       }, 1000)
+     }
 }
 
+const optimization = debounce(query)
+optimization()
+optimization()
+optimization()
 
-change("a");
-change("b");
 setTimeout(()=>{
-    change("c");
+  optimization()
 },2000)
-
-
-
-
