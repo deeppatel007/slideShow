@@ -1,7 +1,7 @@
 
 async function fetchData(){
     const response = await fetch('https://randomuser.me/api/');
-    var data = await response.json();
+    let data = await response.json();
     data = data.results[0];
     
     if(data!==undefined){
